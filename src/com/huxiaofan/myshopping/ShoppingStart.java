@@ -41,8 +41,8 @@ class Run {
 				System.exit(0);
 			}
 			else {
-				admin.doSetPass();
-				mainMenu();
+				admin.doSetPass();	//调用修改密码
+				mainMenu();	//修改完密码显示主界面
 			}
 		}
 	}
@@ -63,20 +63,30 @@ class Run {
 		switch(s) {
 		case 0:workMenu();break;
 		case 1:c.doShow();backToCusInfoMenu();break;
-		case 2:c.doAdd();break;
+		case 2:c.doAdd();backToCusInfoMenu();break;
 		case 3:System.out.println("修 改 客 户 信 息");break;
 		case 4:System.out.println("查 询 客 户 信 息");;break;
 		}
 	}
 	
 	void backToCusInfoMenu(){	//从上一级返回客户信息管理
-	    char s=sc.next().charAt(0);	
-	    if(s=='n')
-	    	cusInfoMenu();
-	    else {
-	    	System.out.print("输入错误，请重新按'n'返回上一级菜单：");
-	    	backToCusInfoMenu();
-	    }
+		try {	//防止用户乱输入崩溃
+			String s=sc.nextLine();
+			if(s.equals("n"))
+				cusInfoMenu();
+			else {
+				System.out.print("输入错误，请重新按'n'返回上一级菜单：");
+				backToCusInfoMenu();
+			}
+		} catch (Exception e) {
+			System.out.print("输入错误，请重新按'n'返回上一级菜单：");
+			backToCusInfoMenu();
+			// TODO: handle exception
+		}
+	}
+	
+	void addCustomer() {
+		
 	}
 	
 	

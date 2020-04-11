@@ -19,18 +19,11 @@ class Menu{
 	int doMainMenu(){
 		//此函数进行菜单选择，并在用户输入不合法值时要求重新输入。最后返回选择的菜单选项
 		showMainMenu();
-	    int s=sc.nextInt();;
-	    while(s>=3||s<1) {
-	    	if(s==3) {
-	    		
-	    		System.out.println("谢谢您的使用！ ");
-	    		System.exit(0);	//退出程序
-			}
-	    	else {
-	    		System.out.print("输入有误！请重新选择，输入数字:");
-	    	}
-	    	s = sc.nextInt();
-	    };
+	    int s=Verify.inputVerify(3);
+	    if(s==3) {	
+	    	System.out.println("谢谢您的使用！ ");
+	    	System.exit(0);	//退出程序
+		}
 		return s;
 	}
 
@@ -47,12 +40,7 @@ class Menu{
 	
 	int doWorkMenu(){
 		showWorkMenu();
-	    int s=sc.nextInt();;
-	    while(s>4||s<1) {
-	    	System.out.print("输入有误！请重新选择，输入数字:");
-	    	s = sc.nextInt();	
-	    };
-		return s;
+		return Verify.inputVerify(4);
 	}
 	
 	void showCusInfoMenu() {
@@ -68,16 +56,10 @@ class Menu{
 	
 	int doCusInfoMenu(){
 		showCusInfoMenu();
-	    char s=sc.next().charAt(0);	
-	    //因为有输入'n'返回上一级，所以需要用字符
-	    while(s>'4'||s<'1') {
-	    	if(s=='n')
-	    		return 0;
-	    	System.out.print("输入有误！请重新选择，输入数字:");
-	    	s = sc.next().charAt(0);	
-	    };
-		return (int)(s-'0');
+		return Verify.inputVerifyWithN(4);
 	}
+	
+	
 
 	
 }
