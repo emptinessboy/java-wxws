@@ -1,6 +1,7 @@
 package com.huxiaofan.myshopping.data;
 
 import java.util.Scanner;
+import com.huxiaofan.myshopping.*;
 
 public final class Customer {
 	
@@ -43,9 +44,11 @@ public final class Customer {
 	}
 	
 	public void doAdd() {
-		System.out.println("\n");
+		System.out.println("\nMyShopPing管理系统 > 客户信息管理 > 添加客户信息\n\n");
 		String id = fourInt();
+		System.out.print("请输入");
 		String birth = inPutBirth();
+		System.out.print("请输入");
 		String num = jifenInt();
 		if(add(id,birth,num)) {	//这个if是判断方法有没有报错
 			System.out.println("新会员添加成功！\n继续添加会员吗？（y/n）");
@@ -67,8 +70,66 @@ public final class Customer {
 		}
 	}
 	
+	public void doModify(int show) {
+		//修改会员功能
+		if(show==1) {
+			System.out.println("\nMyShopPing管理系统 > 客户信息管理 > 修改客户信息\n\n");
+		}
+		String u = fourInt();
+		int i;
+		for(i=0;i<=index;i++) {
+			if(u.equals(users[i][0]))
+				break;	//退出循环的时候i的值就是索引值
+		}
+		if(i>index) {
+			System.out.println("没有这个会员号，需要重新输入！");
+			doModify(0);
+			return;
+		}
+			
+		//输出查找到的会员的信息
+		System.out.println("\n会员号\t\t生日\t\t积分");
+		System.out.println("-----------|-------------|------------");
+		
+		for(int j=0;j<3;j++)
+			System.out.print(users[i][j]+"\t\t");
+		System.out.println("\t");
+	
+		modify(i);
+	}
+	
+	public void modify(int i) {
+	
+		Menu.showModifySwitch();	//显示切换菜单
+		
+		int s = Verify.inputVerify(2);
+		
+		switch(s) {
+			case 1:
+				System.out.print("修改后的");
+				users[i][1]=inPutBirth();
+				System.out.println("生日信息已更改！");
+				break;
+			case 2:
+				System.out.print("修改后的会员");
+				users[i][2]=jifenInt();
+				System.out.println("会员积分已更改！");
+			break;
+		}
+		
+		System.out.println("是否修改其他属性(y/n)：");
+		if(sc.next().charAt(0)=='y')
+			modify(i);
+		else {
+			System.out.print("\n请按'n'返回上一级菜单：");
+			return;
+		}
+	}
+	
+	
+	
 	private String inPutBirth() {	//输入并判断生日
-		System.out.print("请输入会员生日（月/日<用两位数表示>）：");
+		System.out.print("会员生日（月/日<用两位数表示>）：");
 		String birth = sc.nextLine();
 		try {
 			//try catch 防止输入的字符串不能转换成数字造成程序崩溃
@@ -104,7 +165,7 @@ public final class Customer {
 	}
 	
 	private String jifenInt() {	//判断4位整数
-		System.out.print("请输入积分：");
+		System.out.print("积分：");
 		String num = sc.nextLine();
 		try {
 			int n = Integer.parseInt(num);
@@ -119,7 +180,5 @@ public final class Customer {
 		}
 		return num;
 	}
-	
-
 	
 }

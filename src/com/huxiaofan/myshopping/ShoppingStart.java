@@ -64,7 +64,7 @@ class Run {
 			case 0:workMenu();break;
 			case 1:c.doShow();backToCusInfoMenu();break;
 			case 2:c.doAdd();backToCusInfoMenu();break;
-			case 3:System.out.println("修 改 客 户 信 息");break;
+			case 3:c.doModify(1);backToCusInfoMenu();break;
 			case 4:System.out.println("查 询 客 户 信 息");;break;
 		}
 	}

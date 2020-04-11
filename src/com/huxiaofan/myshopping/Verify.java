@@ -1,14 +1,14 @@
 package com.huxiaofan.myshopping;
 import java.util.Scanner;
 
-public class Verify {
+public final class Verify {
 	
 	//此类用来验证用户输入是否合法
 	
 	static Scanner sc = new Scanner(System.in);
 	
 	//输入参数为菜单长度
-	static int inputVerifyWithN(int num) {
+	public static int inputVerifyWithN(int num) {
 		//返回0则表示选中了'n'，其余返回1，2，3，4
 		String s = sc.nextLine();
 		while (s.length()!=1) {
@@ -27,7 +27,7 @@ public class Verify {
 		return (int)(c-'0');
 	}
 	
-	static int inputVerify(int num) {	//验证输入是否正确的方法
+	public static int inputVerify(int num) {	//验证输入是否正确的方法
 		
 		int n=0;
 		while(n==0) {

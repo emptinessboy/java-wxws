@@ -2,7 +2,7 @@ package com.huxiaofan.myshopping;
 
 import java.util.Scanner;
 
-class Menu{
+public class Menu{
 	
 	Scanner sc = new Scanner(System.in);
 	
@@ -12,7 +12,7 @@ class Menu{
 	    System.out.println("\t\t   1. 登 录 系 统\n");
 	    System.out.println("\t\t   2. 更 改 管 理 员 密 码\n");
 	    System.out.println("\t\t   3. 退 出\n");
-	    System.out.println("\n* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *\n");
+	    System.out.println("* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *\n");
 	    System.out.print("请选择，输入数字：");
 	}
 	
@@ -34,7 +34,7 @@ class Menu{
 	    System.out.println("\t\t   2. 购 物 结 算\n");
 	    System.out.println("\t\t   3. 真 情 回 馈\n");
 	    System.out.println("\t\t   4. 注 销\n");
-	    System.out.println("\n* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *\n");
+	    System.out.println("* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *\n");
 	    System.out.print("请选择，输入数字：");
 	}
 	
@@ -50,7 +50,7 @@ class Menu{
 	    System.out.println("\t\t   2. 添 加 客 户 信 息\n");
 	    System.out.println("\t\t   3. 修 改 客 户 信 息\n");
 	    System.out.println("\t\t   4. 查 询 客 户 信 息\n");
-	    System.out.println("\n* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *\n");
+	    System.out.println("* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *\n");
 	    System.out.print("请选择，输入数字或按'n'返回上一级菜单：");
 	}
 	
@@ -59,7 +59,13 @@ class Menu{
 		return Verify.inputVerifyWithN(4);
 	}
 	
-	
+	public static void showModifySwitch() {
+	    System.out.println("\n* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *\n");
+	    System.out.println("\t\t   1. 修 改 会 员 生 日\n");
+	    System.out.println("\t\t   2. 修 改 会 员 积 分\n");
+	    System.out.println("* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *\n");
+	    System.out.print("请选择，输入数字：");
+	}
 
 	
 }
