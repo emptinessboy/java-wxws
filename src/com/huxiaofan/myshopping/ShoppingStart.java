@@ -21,6 +21,7 @@ class Run {
 	//初始化菜单类
 	Menu menu = new Menu();
 	Admin admin = new Admin();
+	Scanner sc = new Scanner(System.in);
 	
 	boolean isLogin;
 
@@ -61,11 +62,21 @@ class Run {
 		Customer c=new Customer();
 		switch(s) {
 		case 0:workMenu();break;
-		case 1:c.doShow();break;
+		case 1:c.doShow();backToCusInfoMenu();break;
 		case 2:c.doAdd();break;
 		case 3:System.out.println("修 改 客 户 信 息");break;
 		case 4:System.out.println("查 询 客 户 信 息");;break;
 		}
+	}
+	
+	void backToCusInfoMenu(){	//从上一级返回客户信息管理
+	    char s=sc.next().charAt(0);	
+	    if(s=='n')
+	    	cusInfoMenu();
+	    else {
+	    	System.out.print("输入错误，请重新按'n'返回上一级菜单：");
+	    	backToCusInfoMenu();
+	    }
 	}
 	
 	

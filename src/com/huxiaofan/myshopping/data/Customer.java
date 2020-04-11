@@ -39,6 +39,7 @@ public final class Customer {
 	}
 	
 	public void doShow() {
+		System.out.println("\nMyShopPing管理系统 > 客户信息管理 > 显示客户信息\n");
 		System.out.println("\n会员号\t\t生日\t\t积分");
 		System.out.println("-----------|-------------|------------");
 		for(int i=0;i<=index;i++) {
@@ -46,7 +47,7 @@ public final class Customer {
 				System.out.print(users[i][j]+"\t\t");
 			System.out.println("\t\n");
 		}
-		
+		System.out.print("\n请按'n'返回上一级菜单：");
 	}
 	
 	

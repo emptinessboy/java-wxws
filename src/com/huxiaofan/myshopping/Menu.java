@@ -7,7 +7,7 @@ class Menu{
 	Scanner sc = new Scanner(System.in);
 	
 	void showMainMenu() {
-	    System.out.println("\n\t欢迎使用 MyShopPing 管理系统 @2018010587-胡晓帆\n");
+	    System.out.println("\n\n\t欢迎使用 MyShopPing 管理系统 @2018010587-胡晓帆\n");
 	    System.out.println("\n* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *\n");
 	    System.out.println("\t\t   1. 登 录 系 统\n");
 	    System.out.println("\t\t   2. 更 改 管 理 员 密 码\n");
@@ -35,7 +35,7 @@ class Menu{
 	}
 
 	void showWorkMenu() {
-	    System.out.println("\n\t欢迎使用 MyShopPing 管理系统 @2018010587-胡晓帆\n");
+	    System.out.println("\n\n\t欢迎使用 MyShopPing 管理系统 @2018010587-胡晓帆\n");
 	    System.out.println("\n* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *\n");
 	    System.out.println("\t\t   1. 客 户 信 息 管 理\n");
 	    System.out.println("\t\t   2. 购 物 结 算\n");
