@@ -67,7 +67,7 @@ public final class Customer {
 		}
 	}
 	
-	String inPutBirth() {	//输入并判断生日
+	private String inPutBirth() {	//输入并判断生日
 		System.out.print("请输入会员生日（月/日<用两位数表示>）：");
 		String birth = sc.nextLine();
 		try {
@@ -85,7 +85,7 @@ public final class Customer {
 		return birth;
 	}
 	
-	String fourInt() {	//判断4位整数
+	private String fourInt() {	//判断4位整数
 		System.out.print("请输入会员号(<4位整数>)：");
 		String num = sc.nextLine();
 		try {
@@ -103,7 +103,7 @@ public final class Customer {
 		return num;
 	}
 	
-	String jifenInt() {	//判断4位整数
+	private String jifenInt() {	//判断4位整数
 		System.out.print("请输入积分：");
 		String num = sc.nextLine();
 		try {
