@@ -9,6 +9,24 @@ public final class Customer {
 	private String[][] users=new String[200][3];
 	private int index = -1;	//计数器，保存现在的用户数
 	
+	public Customer(){
+		//初始化三个自带用户
+		this.add("1111","06/05","8888");
+		this.add("2222","06/06","9999");
+		this.add("3333","06/01","5555");
+	}
+	
+	public void doShow() {
+		System.out.println("\nMyShopPing管理系统 > 客户信息管理 > 显示客户信息\n");
+		System.out.println("\n会员号\t\t生日\t\t积分");
+		System.out.println("-----------|-------------|------------");
+		for(int i=0;i<=index;i++) {
+			for(int j=0;j<3;j++)
+				System.out.print(users[i][j]+"\t\t");
+			System.out.println("\t");
+		}
+		System.out.print("\n请按'n'返回上一级菜单：");
+	}
 	
 	private boolean add(String id,String birth,String num) {
 		try {	//以免用户错误的输入导致程序崩溃
@@ -102,24 +120,6 @@ public final class Customer {
 		return num;
 	}
 	
-	public void doShow() {
-		System.out.println("\nMyShopPing管理系统 > 客户信息管理 > 显示客户信息\n");
-		System.out.println("\n会员号\t\t生日\t\t积分");
-		System.out.println("-----------|-------------|------------");
-		for(int i=0;i<=index;i++) {
-			for(int j=0;j<3;j++)
-				System.out.print(users[i][j]+"\t\t");
-			System.out.println("\t");
-		}
-		System.out.print("\n请按'n'返回上一级菜单：");
-	}
-	
-	
-	public Customer(){
-		//初始化三个自带用户
-		this.add("1111","06/05","8888");
-		this.add("2222","06/06","9999");
-		this.add("3333","06/01","5555");
-	}
+
 	
 }

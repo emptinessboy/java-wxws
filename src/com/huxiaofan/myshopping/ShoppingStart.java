@@ -61,12 +61,16 @@ class Run {
 		int s = menu.doCusInfoMenu();
 		Customer c=new Customer();
 		switch(s) {
-		case 0:workMenu();break;
-		case 1:c.doShow();backToCusInfoMenu();break;
-		case 2:c.doAdd();backToCusInfoMenu();break;
-		case 3:System.out.println("修 改 客 户 信 息");break;
-		case 4:System.out.println("查 询 客 户 信 息");;break;
+			case 0:workMenu();break;
+			case 1:c.doShow();backToCusInfoMenu();break;
+			case 2:c.doAdd();backToCusInfoMenu();break;
+			case 3:System.out.println("修 改 客 户 信 息");break;
+			case 4:System.out.println("查 询 客 户 信 息");;break;
 		}
+	}
+	
+	void modifyCustomer() {
+		
 	}
 	
 	void backToCusInfoMenu(){	//从上一级返回客户信息管理
@@ -85,9 +89,7 @@ class Run {
 		}
 	}
 	
-	void addCustomer() {
-		
-	}
+
 	
 	
 }
