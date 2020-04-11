@@ -17,18 +17,6 @@ public final class Customer {
 		this.add("3333","06/01","5555");
 	}
 	
-	public void doShow() {
-		System.out.println("\nMyShopPing管理系统 > 客户信息管理 > 显示客户信息\n");
-		System.out.println("\n会员号\t\t生日\t\t积分");
-		System.out.println("-----------|-------------|------------");
-		for(int i=0;i<=index;i++) {
-			for(int j=0;j<3;j++)
-				System.out.print(users[i][j]+"\t\t");
-			System.out.println("\t");
-		}
-		System.out.print("\n请按'n'返回上一级菜单：");
-	}
-	
 	private boolean add(String id,String birth,String num) {
 		try {	//以免用户错误的输入导致程序崩溃
 			index ++;
@@ -43,6 +31,18 @@ public final class Customer {
 		}
 	}
 	
+	public void doShow() {
+		System.out.println("\nMyShopPing管理系统 > 客户信息管理 > 显示客户信息\n");
+		System.out.println("\n会员号\t\t生日\t\t积分");
+		System.out.println("-----------|-------------|------------");
+		for(int i=0;i<=index;i++) {
+			for(int j=0;j<3;j++)
+				System.out.print(users[i][j]+"\t\t");
+			System.out.println("\t");
+		}
+		System.out.print("\n请按'n'返回上一级菜单：");
+	}
+	
 	public void doAdd() {
 		System.out.println("\nMyShopPing管理系统 > 客户信息管理 > 添加客户信息\n\n");
 		String id = fourInt();
@@ -50,9 +50,10 @@ public final class Customer {
 		String birth = inPutBirth();
 		System.out.print("请输入");
 		String num = jifenInt();
-		if(add(id,birth,num)) {	//这个if是判断方法有没有报错
+		boolean r = this.add(id,birth,num);
+		if(r) {	//这个if是判断方法有没有报错
 			System.out.println("新会员添加成功！\n继续添加会员吗？（y/n）");
-			if(sc.next().charAt(0)=='y')
+			if(Verify.yesOrNo())
 				doAdd();
 			else {
 				System.out.print("\n请按'n'返回上一级菜单：");
@@ -61,7 +62,7 @@ public final class Customer {
 		}
 		else {
 			System.out.println("输入错误，添加失败！\n重新添加会员吗？（y/n）");
-			if(sc.next().charAt(0)=='y')
+			if(Verify.yesOrNo())
 				doAdd();
 			else {
 				System.out.print("\n请按'n'返回上一级菜单：");
@@ -98,7 +99,7 @@ public final class Customer {
 		modify(i);
 	}
 	
-	public void modify(int i) {
+	private void modify(int i) {
 	
 		Menu.showModifySwitch();	//显示切换菜单
 		
@@ -118,7 +119,7 @@ public final class Customer {
 		}
 		
 		System.out.println("是否修改其他属性(y/n)：");
-		if(sc.next().charAt(0)=='y')
+		if(Verify.yesOrNo())
 			modify(i);
 		else {
 			System.out.print("\n请按'n'返回上一级菜单：");
@@ -126,7 +127,50 @@ public final class Customer {
 		}
 	}
 	
-	
+	public void find(int show) {
+		//查找会员功能
+		if(show==1) {
+			System.out.println("\nMyShopPing管理系统 > 客户信息管理 > 查询客户信息\n\n");
+		}
+
+		String u = fourInt();
+		int i;
+		for(i=0;i<=index;i++) {
+			if(u.equals(users[i][0]))
+				break;	//退出循环的时候i的值就是索引值
+		}
+		if(i>index) {
+			System.out.println("抱歉，没有你查询的会员信息。\n");
+			System.out.print("要继续查询吗（y/n）：");
+			if(Verify.yesOrNo()) {
+				find(0);
+				return;
+			}
+			else {
+				System.out.print("\n请按'n'返回上一级菜单：");
+				return;
+			}
+		}
+			
+		//输出查找到的会员的信息
+		System.out.println("\n会员号\t\t生日\t\t积分");
+		System.out.println("-----------|-------------|------------");
+		
+		for(int j=0;j<3;j++)
+			System.out.print(users[i][j]+"\t\t");
+		System.out.println("\t");
+		
+		System.out.print("\n要继续查询吗（y/n）：");
+		if(Verify.yesOrNo()) {
+			find(0);
+			return;
+		}
+		else {
+			System.out.print("\n请按'n'返回上一级菜单：");
+			return;
+		}
+		
+	}
 	
 	private String inPutBirth() {	//输入并判断生日
 		System.out.print("会员生日（月/日<用两位数表示>）：");

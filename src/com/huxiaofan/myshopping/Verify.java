@@ -35,6 +35,7 @@ public final class Verify {
 			try {
 				n = Integer.parseInt(s);
 				if(n>num||n<1) {
+					n=0;
 					System.out.print("输入有误！请重新输入：");
 				}
 			} catch (Exception e) {
@@ -43,6 +44,25 @@ public final class Verify {
 			}
 		}
 		return n;
+	}
+	
+	public static boolean yesOrNo() {
+		String s = sc.nextLine();
+		while (s.length()!=1) {
+			System.out.print("输入有误！请重新输入哦：");
+	    	s = sc.nextLine();
+		}
+	    char c=(char) s.charAt(0);
+	    //因为有输入'n'返回上一级，所以需要用字符
+	    while( c!='y' && c!='n') {
+	    	System.out.print("输入有误！请重新输入哦：");
+	    	s = sc.nextLine();
+	    	c=(char) s.charAt(0);
+	    }
+	    if(c=='y')
+	    	return true;
+	    else
+	    	return false;
 	}
 
 }

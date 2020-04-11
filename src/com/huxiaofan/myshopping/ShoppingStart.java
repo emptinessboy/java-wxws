@@ -21,6 +21,7 @@ class Run {
 	//初始化菜单类
 	Menu menu = new Menu();
 	Admin admin = new Admin();
+	Customer c=new Customer();
 	Scanner sc = new Scanner(System.in);
 	
 	boolean isLogin;
@@ -59,13 +60,12 @@ class Run {
 	
 	void cusInfoMenu() {
 		int s = menu.doCusInfoMenu();
-		Customer c=new Customer();
 		switch(s) {
 			case 0:workMenu();break;
 			case 1:c.doShow();backToCusInfoMenu();break;
 			case 2:c.doAdd();backToCusInfoMenu();break;
 			case 3:c.doModify(1);backToCusInfoMenu();break;
-			case 4:System.out.println("查 询 客 户 信 息");;break;
+			case 4:c.find(1);backToCusInfoMenu();break;
 		}
 	}
 	
