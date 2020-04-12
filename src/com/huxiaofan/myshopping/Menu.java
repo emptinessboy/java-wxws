@@ -81,7 +81,19 @@ public class Menu{
 	    System.out.print("请输入会员号：");
 	}
 	
-
-
+	void showGift() {
+	    System.out.println("\nMyShopPing管理系统 > 真情回馈\n");
+	    System.out.println("\n* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *\n");
+	    System.out.println("\t\t   1. 幸 运 大 放 送\n");
+	    System.out.println("\t\t   2. 幸 运 抽 奖\n");
+	    System.out.println("\t\t   3. 生 日 问 候\n");
+	    System.out.println("* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *\n");
+	    System.out.print("请选择，输入数字或按'n'返回上一级菜单：");
+	}
+	
+	int doGift(){
+		showGift();
+		return Verify.inputVerifyWithN(3);
+	}
 	
 }

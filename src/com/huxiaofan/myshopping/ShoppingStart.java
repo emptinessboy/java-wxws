@@ -53,7 +53,7 @@ class Run {
 		switch(s) {
 			case 1:cusInfoMenu();break;
 			case 2:Shopping.doShopping(c);backToWorkMenu();break;
-			case 3:;break;
+			case 3:giftMenu();break;
 			case 4:mainMenu();break;
 		}
 	}
@@ -66,6 +66,16 @@ class Run {
 			case 2:c.doAdd();backToCusInfoMenu();break;
 			case 3:c.doModify(1);backToCusInfoMenu();break;
 			case 4:c.find(1);backToCusInfoMenu();break;
+		}
+	}
+	
+	void giftMenu() {
+		int s = menu.doGift();
+		switch(s) {
+			case 0:workMenu();break;
+			case 1:Gifting.daFangSong(c);backToGiftMenu();break;
+			case 2:c.doAdd();backToGiftMenu();break;
+			case 3:c.doModify(1);backToGiftMenu();break;
 		}
 	}
 	
@@ -85,7 +95,7 @@ class Run {
 		}
 	}
 	
-	void backToWorkMenu(){	//从上一级返回客户信息管理
+	void backToWorkMenu(){	//从上一级返回主菜单
 		try {	//防止用户乱输入崩溃
 			String s=sc.nextLine();
 			if(s.equals("n"))
@@ -101,7 +111,21 @@ class Run {
 		}
 	}
 	
-	
+	void backToGiftMenu(){	//从上一级返回真情回馈
+		try {	//防止用户乱输入崩溃
+			String s=sc.nextLine();
+			if(s.equals("n"))
+				giftMenu();
+			else {
+				System.out.print("输入错误，请重新按'n'返回上一级菜单：");
+				backToGiftMenu();
+			}
+		} catch (Exception e) {
+			System.out.print("输入错误，请重新按'n'返回上一级菜单：");
+			backToGiftMenu();
+			// TODO: handle exception
+		}
+	}
 }
 
 

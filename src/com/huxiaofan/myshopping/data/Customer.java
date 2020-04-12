@@ -198,6 +198,22 @@ public final class Customer {
 		return i;
 	}
 	
+	public int findBestUsers() {
+		//查找积分最多的用户
+		int i,max=0;
+		
+		for(i=1;i<=index;i++) {
+			if(Integer.parseInt(users[i][2])>Integer.parseInt(users[max][2])) {
+				max=i;
+			}
+		}
+		for(int j=0;j<3;j++)
+			System.out.print(users[max][j]+"    ");
+		return max;
+	}
+	
+	
+	
 	public String inPutBirth() {	//输入并判断生日
 		System.out.print("会员生日（月/日<用两位数表示>）：");
 		String birth = sc.nextLine();
