@@ -5,7 +5,7 @@ import com.huxiaofan.myshopping.*;
 
 public final class Customer {
 	
-	private Scanner sc=new Scanner(System.in);
+	private static Scanner sc=new Scanner(System.in);
 	//二维数组存放会员信息，三列分别存放会员号，生日和积分。
 	private String[][] users=new String[200][3];
 	private int index = -1;	//计数器，保存现在的用户数
@@ -172,7 +172,33 @@ public final class Customer {
 		
 	}
 	
-	private String inPutBirth() {	//输入并判断生日
+	public void addJIfen(int id,int n) {
+		//增减积分功能
+		int temp = Integer.parseInt(users[id][2]);
+		users[id][2] = String.valueOf(temp+n);
+		//因为是字符串存储积分的，要转化后才能加
+		
+	}
+	
+	public int findId(String u) {
+		//查找用户id并返回整数
+		int i;
+		do {
+			for(i=0;i<=index;i++) {
+				if(u.equals(users[i][0]))
+				break;	//退出循环的时候i的值就是索引值
+			}
+			if(i>index) {
+				System.out.println("抱歉，输入错误没有你查询的会员信息。\n");
+				System.out.print("重新输入4位会员号：");
+				u = sc.nextLine();
+			}
+		}while(i>index);
+		
+		return i;
+	}
+	
+	public String inPutBirth() {	//输入并判断生日
 		System.out.print("会员生日（月/日<用两位数表示>）：");
 		String birth = sc.nextLine();
 		try {
@@ -190,25 +216,33 @@ public final class Customer {
 		return birth;
 	}
 	
-	private String fourInt() {	//判断4位整数
+	 public static String fourInt() {	//判断4位整数
 		System.out.print("请输入会员号(<4位整数>)：");
 		String num = sc.nextLine();
-		try {
-			//try catch 防止输入的字符串不能转换成数字造成程序崩溃
-			int n = Integer.parseInt(num);
-			if(1000>n||n>9999) {
+		boolean t = true;
+		while(t) {
+			try {
+				//try catch 防止输入的字符串不能转换成数字造成程序崩溃
+				int n = Integer.parseInt(num);
+				if(1000>n||n>9999) {
+					System.out.println("您输入的不是4位整数，请重新输入！（大于等于1000，小于等于9999）");
+					System.out.print("请输入会员号(<4位整数>)：");
+					num = sc.nextLine();
+				}
+				else {
+					t = false;
+				}
+			} catch (Exception e) {
 				System.out.println("您输入的不是4位整数，请重新输入！（大于等于1000，小于等于9999）");
-				fourInt();
+				System.out.print("请输入会员号(<4位整数>)：");
+				num = sc.nextLine();
+				// TODO: handle exception
 			}
-		} catch (Exception e) {
-			System.out.println("您输入的不是4位整数，请重新输入！（大于等于1000，小于等于9999）");
-			fourInt();
-			// TODO: handle exception
 		}
 		return num;
 	}
 	
-	private String jifenInt() {	//判断4位整数
+	 public String jifenInt() {	//判断4位整数
 		System.out.print("积分：");
 		String num = sc.nextLine();
 		try {

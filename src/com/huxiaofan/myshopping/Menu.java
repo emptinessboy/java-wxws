@@ -66,6 +66,22 @@ public class Menu{
 	    System.out.println("* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *\n");
 	    System.out.print("请选择，输入数字：");
 	}
+	
+	static void showPay() {
+		System.out.println("\nMyShopPing管理系统 > 购物结算\n");
+	    System.out.println("\n*********************************\n");
+	    System.out.println(" 1. addidas 运动鞋");
+	    System.out.println(" 2. Kappa 网球裙");
+	    System.out.println(" 3. 网球拍");
+	    System.out.println(" 4. addidas T恤");
+	    System.out.println(" 5. Nike 运动鞋");
+	    System.out.println(" 6. Kappa 网球");
+	    System.out.println(" 7. Kappa T恤");
+	    System.out.println("\n*********************************\n");
+	    System.out.print("请输入会员号：");
+	}
+	
+
 
 	
 }

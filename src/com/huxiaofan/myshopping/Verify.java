@@ -46,6 +46,21 @@ public final class Verify {
 		return n;
 	}
 	
+	public static int numVerify() {	//验证输入商品数量
+		int n=-1;
+		while(n<0) {
+			String s = sc.nextLine();
+			try {
+				n = Integer.parseInt(s);
+				} 
+			catch (Exception e) {
+				System.out.print("输入有误！请重新输入：");
+				// TODO: handle exception
+			}
+		}
+		return n;
+	}
+	
 	public static boolean yesOrNo() {
 		String s = sc.nextLine();
 		while (s.length()!=1) {

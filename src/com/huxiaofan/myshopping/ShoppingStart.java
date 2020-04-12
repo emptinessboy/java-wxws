@@ -52,7 +52,7 @@ class Run {
 		int s = menu.doWorkMenu();
 		switch(s) {
 			case 1:cusInfoMenu();break;
-			case 2:;break;
+			case 2:Shopping.doShopping(c);backToWorkMenu();break;
 			case 3:;break;
 			case 4:mainMenu();break;
 		}
@@ -67,10 +67,6 @@ class Run {
 			case 3:c.doModify(1);backToCusInfoMenu();break;
 			case 4:c.find(1);backToCusInfoMenu();break;
 		}
-	}
-	
-	void modifyCustomer() {
-		
 	}
 	
 	void backToCusInfoMenu(){	//从上一级返回客户信息管理
@@ -89,7 +85,21 @@ class Run {
 		}
 	}
 	
-
+	void backToWorkMenu(){	//从上一级返回客户信息管理
+		try {	//防止用户乱输入崩溃
+			String s=sc.nextLine();
+			if(s.equals("n"))
+				workMenu();
+			else {
+				System.out.print("输入错误，请重新按'n'返回上一级菜单：");
+				backToWorkMenu();
+			}
+		} catch (Exception e) {
+			System.out.print("输入错误，请重新按'n'返回上一级菜单：");
+			backToWorkMenu();
+			// TODO: handle exception
+		}
+	}
 	
 	
 }
