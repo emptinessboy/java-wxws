@@ -49,7 +49,7 @@ public class Shopping {
 				list[6][0]+=number;list[6][1]=180*number;
 				break;
 			}
-			System.out.print("是否继续（y/n）");
+			System.out.print("是否继续（y/n）：");
 		}while(Verify.yesOrNo());	//循环添加商品
 		money = money*0.85;
 		

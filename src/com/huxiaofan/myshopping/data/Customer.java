@@ -212,23 +212,31 @@ public final class Customer {
 		return max;
 	}
 	
-	
+	public String randomUser() {
+		return users[(int) ((index+1)*Math.random())][0];
+	}
 	
 	public String inPutBirth() {	//输入并判断生日
 		System.out.print("会员生日（月/日<用两位数表示>）：");
 		String birth = sc.nextLine();
-		try {
-			//try catch 防止输入的字符串不能转换成数字造成程序崩溃
-			String[] c = birth.split("/"); 	// 分割字符串b到数组c
-			if (Integer.parseInt(c[0])<=0 || Integer.parseInt(c[0])>12 || Integer.parseInt(c[1])<=0 || Integer.parseInt(c[1])>31) {
+		boolean t = true;
+		do {
+			try {
+				String[] c = birth.split("/"); 	// 分割字符串b到数组c
+				if (Integer.parseInt(c[0])<=0 || Integer.parseInt(c[0])>12 || Integer.parseInt(c[1])<=0 || Integer.parseInt(c[1])>31 
+						|| c.length!=2 || c[0].length()!=2|| c[1].length()!=2) {
+					System.out.println("生日不合法，需要重新输入！");
+					System.out.print("会员生日（月/日<用两位数表示>）：");
+					birth = sc.nextLine();
+				}else
+					t=false;
+			} catch (Exception e) {
+				// TODO: handle exception
 				System.out.println("生日不合法，需要重新输入！");
-				inPutBirth();
+				System.out.print("会员生日（月/日<用两位数表示>）：");
+				birth = sc.nextLine();
 			}
-		} catch (Exception e) {
-			// TODO: handle exception
-			System.out.println("生日不合法，需要重新输入！");
-			inPutBirth();
-		}
+		}while(t);
 		return birth;
 	}
 	
@@ -261,17 +269,26 @@ public final class Customer {
 	 public String jifenInt() {	//判断4位整数
 		System.out.print("积分：");
 		String num = sc.nextLine();
-		try {
-			int n = Integer.parseInt(num);
-			if(n<0||n>999999) {
-				System.out.println("积分超出范围，请重新输入！");
-				jifenInt();
+		boolean t = true;
+		do {
+			try {
+				int n = Integer.parseInt(num);
+				if(n<0||n>999999) {
+					System.out.println("积分超出范围，请重新输入！");
+					System.out.print("输入积分：");
+					num = sc.nextLine();
+				}
+				else {
+					t=false;
+				}
+			} catch (Exception e) {
+				// TODO: handle exception
+				System.out.println("输入异常，请重新输入！");
+				System.out.print("输入积分：");
+				num = sc.nextLine();
 			}
-		} catch (Exception e) {
-			// TODO: handle exception
-			System.out.println("输入异常，请重新输入！");
-			jifenInt();
-		}
+		}while(t);
+
 		return num;
 	}
 	

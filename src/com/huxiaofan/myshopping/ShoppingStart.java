@@ -74,7 +74,7 @@ class Run {
 		switch(s) {
 			case 0:workMenu();break;
 			case 1:Gifting.daFangSong(c);backToGiftMenu();break;
-			case 2:c.doAdd();backToGiftMenu();break;
+			case 2:Gifting.goodLuck(c);backToGiftMenu();break;
 			case 3:c.doModify(1);backToGiftMenu();break;
 		}
 	}
