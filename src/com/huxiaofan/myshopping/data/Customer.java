@@ -198,6 +198,25 @@ public final class Customer {
 		return i;
 	}
 	
+	public void findBirth(String u) {
+		//查找用户id并返回整数
+		int i;
+		for(i=0;i<=index;i++) {
+			if(u.equals(users[i][1]))
+				break;	//退出循环的时候i的值就是索引值
+		}
+		if(i>index) {
+			System.out.println("今天没有过生日的会员！");
+		}
+		else {
+			System.out.println("过生日的会员是：");
+			System.out.println("会员号："+users[i][0]);
+			System.out.println("\n恭喜！获赠MP3一个！");
+		}
+	}
+		
+
+	
 	public int findBestUsers() {
 		//查找积分最多的用户
 		int i,max=0;

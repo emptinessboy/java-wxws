@@ -5,7 +5,7 @@ import java.util.*;
 
 public class Gifting {
 	
-	Scanner sc=new Scanner(System.in);
+	static Scanner sc=new Scanner(System.in);
 	
 	public static void daFangSong(Customer c) {	//大放送这个奇怪的名字真的不知道咋翻译
 		System.out.println("\nMyShopPing管理系统 > 真情回馈 > 幸运大放送\n\n");
@@ -26,14 +26,11 @@ public class Gifting {
 	
 	public static void happyBirth(Customer c) {
 		System.out.println("\nMyShopPing管理系统 > 真情回馈 > 生日问候\n\n");
-		System.out.print("是否开始（y/n）：");
-		if(Verify.yesOrNo()) {
-			System.out.println("幸运客户获赠MP3，会员号为："+c.randomUser());
-		}
+		c.findBirth(inPutDate());
 		System.out.print("\n\n请按'n'返回上一级菜单：");
 	}
 	
-	String inPutDate() {	//输入并判断生日
+	static String inPutDate() {	//输入并判断生日
 		System.out.print("请输入今天的日期(月/日<用两位表示>)：");
 		String birth = sc.nextLine();
 		boolean t = true;
