@@ -11,8 +11,6 @@ public class ShoppingStart {
 		r.mainMenu();
 	}
 	
-
-	
 }
 
 
